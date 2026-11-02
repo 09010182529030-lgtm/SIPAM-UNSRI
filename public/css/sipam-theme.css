@@ -1,0 +1,425 @@
+:root {
+    color-scheme: light;
+    --sipam-navy: #09264b;
+    --sipam-navy-deep: #061a35;
+    --sipam-blue: #174c82;
+    --sipam-gold: #e4b43c;
+    --sipam-gold-light: #f6d77c;
+    --sipam-ink: #18324f;
+    --sipam-muted: #6d7f93;
+    --sipam-surface: #fff;
+    --sipam-line: #e4eaf1;
+    --sipam-shadow: 0 18px 44px rgba(6, 26, 53, .09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    color: var(--sipam-ink);
+    background-color: #f5f7fa;
+}
+
+::selection {
+    color: var(--sipam-navy-deep);
+    background: var(--sipam-gold-light);
+}
+
+a,
+button,
+input,
+select,
+textarea,
+summary {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 3px solid rgba(228, 180, 60, .75);
+    outline-offset: 3px;
+}
+
+nav,
+.navbar,
+.topbar {
+    background: linear-gradient(105deg, var(--sipam-navy-deep), var(--sipam-navy)) !important;
+    border-bottom: 2px solid rgba(228, 180, 60, .82);
+    box-shadow: 0 10px 30px rgba(6, 26, 53, .18) !important;
+}
+
+.brand-logo,
+.brand img,
+.topbar .brand img {
+    border: 2px solid rgba(228, 180, 60, .78);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, .18);
+}
+
+.topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.brand-subtitle,
+.brand-text p,
+.nav-menu a:hover,
+.nav-menu a.active,
+.menu a:hover,
+.menu a.active,
+.navigation a:hover,
+.navigation a[aria-current="page"] {
+    color: var(--sipam-gold-light) !important;
+}
+
+.nav-menu .admin-btn,
+.admin-btn {
+    color: var(--sipam-navy-deep) !important;
+    background: linear-gradient(135deg, var(--sipam-gold-light), var(--sipam-gold)) !important;
+    border: 1px solid rgba(255, 255, 255, .28);
+    box-shadow: 0 8px 20px rgba(228, 180, 60, .2);
+}
+
+.hero {
+    border-bottom: 3px solid var(--sipam-gold);
+    background-color: var(--sipam-navy) !important;
+    background-image:
+        linear-gradient(105deg, rgba(5, 24, 49, .94), rgba(9, 38, 75, .78) 58%, rgba(15, 57, 98, .55)),
+        url("../images/unsri-campus.jpg") !important;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero h1,
+.hero h2 {
+    letter-spacing: -.035em;
+}
+
+.hero h1 span,
+.hero h2 span,
+.hero-label,
+.hero .badge,
+.hero .label,
+.eyebrow {
+    color: var(--sipam-gold-light) !important;
+}
+
+.hero-label,
+.hero .badge,
+.hero .label {
+    border-color: rgba(246, 215, 124, .7);
+    background-color: rgba(6, 26, 53, .28);
+}
+
+.hero-quicklinks,
+.hero-quicklink,
+.hero-quicklink-icon {
+    border-color: rgba(246, 215, 124, .32);
+}
+
+.hero-quicklink-icon,
+.hero-highlight span,
+.voice-step-number,
+.icon-box,
+.icon,
+.small-icon {
+    color: var(--sipam-navy);
+    background: linear-gradient(145deg, #fff7df, #f4dfa4);
+}
+
+.hero-quicklink-arrow,
+.hero-quicklinks-label,
+.card-link {
+    color: var(--sipam-gold) !important;
+}
+
+.form-card,
+.stat-card,
+.chart-card,
+.panel,
+.info-card,
+.card,
+.voice-step,
+.faq-item,
+.admin-profile {
+    border: 1px solid var(--sipam-line);
+    box-shadow: var(--sipam-shadow);
+}
+
+.form-card,
+.stat-card,
+.chart-card,
+.panel,
+.info-card,
+.card,
+.voice-step {
+    border-radius: 20px;
+}
+
+.form-card,
+.card,
+.info-card,
+.voice-step,
+.stat-card,
+.panel,
+.chart-card {
+    transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+}
+
+.card:hover,
+.info-card:hover,
+.voice-step:hover,
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(228, 180, 60, .55);
+    box-shadow: 0 22px 48px rgba(6, 26, 53, .13);
+}
+
+.card::before {
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--sipam-navy), var(--sipam-gold)) !important;
+}
+
+.card-icon,
+.stat-icon,
+.icon,
+.icon-box,
+.small-icon,
+.menu-icon {
+    border: 1px solid rgba(228, 180, 60, .35);
+}
+
+.card-icon svg,
+.stat-icon svg,
+.icon svg,
+.icon-box svg,
+.small-icon svg,
+.menu-icon svg,
+.stat-symbol svg {
+    display: block;
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+.card-icon,
+.stat-icon,
+.menu-icon {
+    background: linear-gradient(145deg, #102f58, #174c82) !important;
+    color: var(--sipam-gold-light) !important;
+    box-shadow: 0 9px 20px rgba(9, 38, 75, .16);
+}
+
+.form-header h2,
+.stat-card .number,
+.stat-card strong,
+.panel h2,
+.chart-header h2,
+.section-title h2,
+.voice-intro-heading h2 {
+    color: var(--sipam-navy) !important;
+}
+
+input,
+select,
+textarea {
+    border-color: #d8e0e9;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--sipam-gold) !important;
+    box-shadow: 0 0 0 4px rgba(228, 180, 60, .16) !important;
+}
+
+.submit-btn,
+.btn-login,
+.info-dialog-actions a {
+    color: var(--sipam-navy-deep) !important;
+    background: linear-gradient(135deg, var(--sipam-gold-light), var(--sipam-gold)) !important;
+    box-shadow: 0 10px 24px rgba(160, 117, 13, .2);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.submit-btn:hover,
+.btn-login:hover,
+.info-dialog-actions a:hover {
+    filter: brightness(1.04);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(160, 117, 13, .26);
+}
+
+.welcome-banner {
+    background:
+        linear-gradient(100deg, rgba(6, 26, 53, .96), rgba(9, 38, 75, .84)),
+        url("../images/unsri-campus.jpg") center 46% / cover !important;
+    border: 1px solid rgba(228, 180, 60, .55);
+    box-shadow: 0 16px 34px rgba(6, 26, 53, .17) !important;
+}
+
+.stat-card::before {
+    background: linear-gradient(180deg, var(--sipam-gold-light), var(--sipam-gold)) !important;
+}
+
+.stat-card:nth-child(2)::before,
+.stat-card:nth-child(3)::before,
+.stat-card:nth-child(4)::before {
+    background: linear-gradient(180deg, var(--sipam-gold-light), var(--sipam-gold)) !important;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, var(--sipam-navy-deep), #0b315c 72%, #102f58) !important;
+    border-right: 1px solid rgba(228, 180, 60, .45);
+    box-shadow: 8px 0 30px rgba(6, 26, 53, .16) !important;
+}
+
+.logo-area {
+    border-bottom-color: rgba(246, 215, 124, .28) !important;
+}
+
+.logo-circle {
+    border: 2px solid var(--sipam-gold);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .2);
+}
+
+.menu-title {
+    color: var(--sipam-gold-light) !important;
+}
+
+.menu a.active {
+    background: linear-gradient(90deg, rgba(228, 180, 60, .2), rgba(255, 255, 255, .06)) !important;
+    box-shadow: inset 4px 0 var(--sipam-gold) !important;
+}
+
+.logout-button {
+    border-color: rgba(246, 215, 124, .35) !important;
+}
+
+.chart-fill,
+.bar-fill {
+    background: linear-gradient(90deg, var(--sipam-navy), var(--sipam-gold)) !important;
+}
+
+.campus-footer,
+footer {
+    border-top: 2px solid rgba(228, 180, 60, .75);
+}
+
+.campus-footer {
+    background-image:
+        linear-gradient(rgba(5, 19, 39, .82), rgba(2, 14, 29, .9)),
+        url("../images/unsri-campus.jpg") !important;
+}
+
+.campus-footer-brand img {
+    border: 2px solid var(--sipam-gold);
+}
+
+.login-wrapper {
+    border: 1px solid rgba(228, 180, 60, .58);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .3) !important;
+}
+
+.left-section {
+    background:
+        linear-gradient(145deg, rgba(6, 26, 53, .94), rgba(9, 38, 75, .84)),
+        url("../images/unsri-campus.jpg") center / cover !important;
+}
+
+.logo-container {
+    border: 3px solid var(--sipam-gold);
+}
+
+.login-box h2,
+.login-box h2 .yellow {
+    color: var(--sipam-navy) !important;
+}
+
+.yellow {
+    color: var(--sipam-gold-light) !important;
+}
+
+.privacy-note {
+    border-left: 4px solid var(--sipam-gold);
+}
+
+.transparency-stat-icon {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13px;
+    border: 1px solid rgba(228, 180, 60, .42);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #102f58, #174c82);
+    color: var(--sipam-gold-light);
+}
+
+.transparency-stat-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+}
+
+@keyframes sipam-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.hero-inner,
+.form-card,
+.welcome-banner {
+    animation: sipam-enter .55s ease-out both;
+}
+
+@media (max-width: 850px) {
+    .nav-menu,
+    .menu,
+    .navigation {
+        row-gap: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        background-position: 58% center;
+    }
+
+    .form-card {
+        border-radius: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
