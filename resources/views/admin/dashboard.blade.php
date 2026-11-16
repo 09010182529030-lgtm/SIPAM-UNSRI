@@ -539,10 +539,12 @@
         }
 
         .chart-track {
-            height: 14px;
+            height: 18px;
             overflow: hidden;
-            border-radius: 20px;
-            background: #edf2f8;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #edf2f8 0%, #f4f7fb 100%);
+            border: 1px solid rgba(17, 52, 89, 0.04);
+            box-shadow: inset 0 1px 2px rgba(11, 35, 64, 0.06);
         }
 
         .chart-fill {
@@ -550,22 +552,23 @@
             min-width: 0;
             border-radius: inherit;
             transition: width .3s ease;
+            box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .chart-fill-incoming {
-            background: #e4a900;
+            background: linear-gradient(90deg, #102d52 0%, #1b457a 42%, #d7a63b 100%);
         }
 
         .chart-fill-processing {
-            background: #0872c7;
+            background: linear-gradient(90deg, #173d6b 0%, #2d7ac8 46%, #dfeaf7 100%);
         }
 
         .chart-fill-completed {
-            background: #0ca678;
+            background: linear-gradient(90deg, #0e574f 0%, #2aa68d 52%, #c8e8dd 100%);
         }
 
         .chart-fill-aspirations {
-            background: #7657c8;
+            background: linear-gradient(90deg, #24314d 0%, #6978a4 46%, #e6ebf3 100%);
         }
 
         .chart-value {
@@ -1089,18 +1092,44 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             min-width: 330px;
         }
 
-        .status-form input {
-            width: 180px;
-            min-width: 150px;
-            padding: 9px 11px;
-            border: 1px solid #dce6ef;
-            border-radius: 8px;
-            color: #315373;
+        .status-form input,
+        .status-form select {
+            min-height: 42px;
+            padding: 10px 12px;
+            border: 1px solid #d8e3f0;
+            border-radius: 10px;
+            color: #20466e;
+            background: #fbfcff;
             font-size: 11px;
+            outline: none;
+            box-shadow: inset 0 1px 2px rgba(17, 52, 89, 0.03);
+        }
+
+        .status-form select {
+            min-width: 140px;
+            background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+            cursor: pointer;
+            appearance: none;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #1d5fa8 50%),
+                linear-gradient(135deg, #1d5fa8 50%, transparent 50%),
+                linear-gradient(to right, #ffffff, #ffffff);
+            background-position:
+                calc(100% - 18px) calc(50% - 2px),
+                calc(100% - 12px) calc(50% - 2px),
+                0 0;
+            background-size: 6px 6px, 6px 6px, 100% 100%;
+            background-repeat: no-repeat;
+            padding-right: 34px;
+        }
+
+        .status-form input {
+            width: 220px;
+            min-width: 150px;
         }
 
         .status-next {
@@ -1111,56 +1140,26 @@
 
         .save-button {
             border: none;
-
-            background: linear-gradient(
-                135deg,
-                #0767b5,
-                #0784d8
-            );
-
+            background: linear-gradient(135deg, #0767b5, #0a7cd3);
             color: white;
-
-            padding: 9px 15px;
-
-            border-radius: 8px;
-
+            padding: 10px 16px;
+            border-radius: 10px;
             cursor: pointer;
-
             font-size: 11px;
-
             font-weight: 700;
-
             box-shadow: 0 4px 10px rgba(0,100,190,0.15);
-
             transition: 0.2s;
         }
 
         .save-button:hover {
             transform: translateY(-2px);
-
             box-shadow: 0 6px 15px rgba(0,100,190,0.22);
         }
 
-        select {
-            padding: 8px 11px;
-
-            border: 1px solid #dce6ef;
-
-            border-radius: 8px;
-
-            color: #315373;
-
-            background: white;
-
-            outline: none;
-
-            font-size: 11px;
-
-            cursor: pointer;
-        }
-
-        select:focus {
+        .status-form input:focus,
+        .status-form select:focus {
             border-color: #0872c7;
+            box-shadow: 0 0 0 3px rgba(8, 114, 199, 0.12);
         }
 
         /* =========================
@@ -2022,17 +2021,22 @@
                                             @csrf
                                             <input type="hidden" name="search" value="{{ $search }}">
                                             <input type="hidden" name="status_filter" value="{{ $statusFilter }}">
-                                            <input type="hidden" name="status" value="{{ $nextStatus }}">
-                                            <span class="status-next">Lanjutkan: {{ $nextStatus }}</span>
+                                            <select
+                                                name="status"
+                                                aria-label="Ubah status pengaduan {{ $item->judul }}"
+                                                onchange="const note = this.form.querySelector('[name=note]'); if (!note.value.trim()) { note.value = this.value === 'Selesai' ? 'Laporan telah selesai ditangani.' : 'Laporan sedang ditindaklanjuti.'; } this.form.submit();"
+                                            >
+                                                <option value="{{ $nextStatus }}" selected>{{ $nextStatus }}</option>
+                                            </select>
                                             <input
                                                 type="text"
                                                 name="note"
                                                 maxlength="1000"
                                                 placeholder="{{ $nextStatus === 'Selesai' ? 'Catatan penyelesaian' : 'Catatan tindak lanjut' }}"
                                                 aria-label="{{ $nextStatus === 'Selesai' ? 'Catatan penyelesaian' : 'Catatan tindak lanjut' }} untuk {{ $item->judul }}"
+                                                value="{{ $nextStatus === 'Selesai' ? 'Laporan telah selesai ditangani.' : 'Laporan sedang ditindaklanjuti.' }}"
                                                 required
                                             >
-                                            <button type="submit" class="save-button">Simpan</button>
                                         </form>
                                     @else
                                         <span class="status-next">Tidak ada tahap lanjutan</span>
@@ -2230,7 +2234,11 @@
                                         @method('PUT')
 
 
-                                        <select name="status">
+                                        <select
+                                            name="status"
+                                            onchange="this.form.submit()"
+                                            aria-label="Ubah status aspirasi {{ $item->judul }}"
+                                        >
 
                                             <option
                                                 value="Menunggu"
@@ -2254,14 +2262,6 @@
                                             </option>
 
                                         </select>
-
-
-                                        <button
-                                            type="submit"
-                                            class="save-button"
-                                        >
-                                            Simpan
-                                        </button>
 
                                     </form>
 

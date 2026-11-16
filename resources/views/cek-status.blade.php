@@ -108,10 +108,6 @@
             color: #ffc629;
         }
 
-        .menu a.active {
-            color: #ffc629;
-        }
-
         .admin-btn {
             background: #ffc629;
             color: #06245f !important;
@@ -708,7 +704,7 @@
                 Aspirasi
             </a>
 
-            <a href="{{ url('/cek-status') }}" class="active">
+            <a href="{{ url('/cek-status') }}">
                 Cek Status
             </a>
 

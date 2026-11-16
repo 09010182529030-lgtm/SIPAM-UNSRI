@@ -6,6 +6,8 @@
 
     <title>Sistem Pengaduan & Aspirasi Mahasiswa</title>
 
+    <link rel="stylesheet" href="{{ asset('css/sipam-theme.css') }}">
+
     <style>
         html,
         body,
@@ -39,95 +41,130 @@
         }
 
         .navbar {
-            height: 112px;
-            background: #092f6b;
+            position: relative;
+            height: 90px;
+            background: linear-gradient(90deg, #071f3d 0%, #0b2a49 100%) !important;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
+            justify-content: center;
+            padding: 0;
             color: white;
+            border-bottom: 2px solid #efc95f !important;
+            box-shadow: none !important;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .brand img {
-            width: 74px;
-            height: 74px;
-            object-fit: contain;
-            background: white;
-            border-radius: 10px;
-            padding: 5px;
-        }
-
-        .brand-text h1 {
-            font-size: 27px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .brand-text p {
-            color: #ffc328;
-            font-size: 15px;
-            font-weight: bold;
-            letter-spacing: .5px;
+        .navbar::after {
+            content: none;
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 35px;
+            justify-content: space-between;
+            width: 89.5%;
+            max-width: 1684px;
+            height: 100%;
+            margin: 0 auto;
+            padding-right: 33px;
+            gap: 24px;
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
         }
 
-        .nav-menu a {
-            text-decoration: none;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            transition: .3s;
-        }
-
-        .nav-menu a:hover {
-            color: #ffc328;
-        }
-
-        .nav-menu .admin-btn {
-            display: inline-flex;
+        .brand-wrap {
+            display: flex;
             align-items: center;
-            gap: 9px;
-            padding: 6px 13px 6px 7px;
-            border: 1px solid rgba(255, 255, 255, .35);
-            border-radius: 999px;
-            color: white;
-            font-size: 15px;
-            transition: .3s;
+            gap: 16px;
+            min-width: 0;
+            flex: 1;
         }
 
-        .admin-avatar {
-            display: inline-flex;
-            width: 32px;
-            height: 32px;
+        .brand-icon {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #efc95f;
+            border-radius: 14px;
+            background: #fff;
+            display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: #ffc328;
-            color: #092f6b;
+            flex-shrink: 0;
+            box-shadow: none;
         }
 
-        .admin-avatar svg {
-            width: 18px;
-            height: 18px;
-            fill: currentColor;
+        .brand-icon img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 0;
         }
 
-        .nav-menu .admin-btn:hover {
-            border-color: #ffc328;
-            background: rgba(255, 195, 40, .12);
-            color: #ffc328;
+        .brand-text {
+            min-width: 0;
+        }
+
+        .brand-text h1 {
+            margin: 0;
+            color: white;
+            font-size: 19px;
+            line-height: 1.15;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+        }
+
+        .brand-text p {
+            margin: 3px 0 0;
+            color: #f0c45d;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 26px;
+            flex-wrap: wrap;
+            background: transparent !important;
+            border: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1;
+            transition: color .25s ease, transform .25s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f5d57a;
             transform: translateY(-1px);
+        }
+
+        .nav-links .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            height: 48px;
+            padding: 0 18px;
+            border-radius: 12px;
+            background: #efc95f !important;
+            color: #0d1d2d !important;
+            font-weight: 800;
+            box-shadow: 0 4px 10px rgba(239, 201, 95, 0.18);
+        }
+
+        .nav-links .admin-btn:hover {
+            background: #f6d980;
+            color: #0d1d2d;
         }
 
         .hero {
@@ -794,17 +831,33 @@
             .navbar {
                 height: auto;
                 padding: 20px 5%;
-                flex-direction: column;
-                gap: 20px;
             }
 
             .nav-menu {
-                gap: 18px;
-                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                height: auto;
+                padding-right: 0;
+                gap: 20px;
+                flex-wrap: nowrap;
                 justify-content: center;
             }
 
-            .nav-menu a {
+            .brand-wrap {
+                flex: none;
+            }
+
+            .brand-text h1 {
+                font-size: clamp(20px, 3vw, 28px);
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 18px 26px;
+            }
+
+            .nav-links a {
                 font-size: 16px;
             }
 
@@ -852,19 +905,26 @@
             }
 
             .navbar {
-                align-items: stretch;
+                align-items: center;
                 padding: 16px 6%;
             }
 
-            .brand {
-                width: 100%;
-                min-width: 0;
+            .nav-menu {
+                gap: 16px;
             }
 
-            .brand img {
-                width: 60px;
-                height: 60px;
-                flex: 0 0 60px;
+            .brand-wrap {
+                gap: 13px;
+            }
+
+            .brand-icon {
+                width: 52px;
+                height: 52px;
+            }
+
+            .brand-icon img {
+                width: 34px;
+                height: 34px;
             }
 
             .brand-text {
@@ -872,13 +932,28 @@
             }
 
             .brand-text h1 {
-                font-size: 19px;
+                font-size: 16px;
                 line-height: 1.25;
-                overflow-wrap: anywhere;
+                white-space: normal;
             }
 
             .brand-text p {
-                font-size: 12px;
+                font-size: 10px;
+                letter-spacing: .08em;
+            }
+
+            .nav-links {
+                gap: 14px 18px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .nav-links .admin-btn {
+                min-width: 94px;
+                height: 42px;
+                padding: 0 16px;
             }
 
             .hero-content {
@@ -945,29 +1020,30 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="{{ asset('css/sipam-theme.css') }}">
 </head>
 
 <body>
 
     <header class="navbar">
-        <div class="brand">
-            <img src="{{ asset('images/logo.jpg') }}" alt="Logo Universitas Sriwijaya">
-            <div class="brand-text">
-                <h1>Sistem Pengaduan & Aspirasi Mahasiswa</h1>
-                <p>UNIVERSITAS SRIWIJAYA</p>
+        <nav class="nav-menu" aria-label="Navigasi utama">
+            <div class="brand-wrap">
+                <div class="brand-icon">
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo Universitas Sriwijaya">
+                </div>
+                <div class="brand-text">
+                    <h1>Sistem Pengaduan &amp; Aspirasi Mahasiswa</h1>
+                    <p>UNIVERSITAS SRIWIJAYA</p>
+                </div>
             </div>
-        </div>
 
-        <nav class="nav-menu">
-            <a href="{{ session('admin_login') ? route('admin.dashboard') : route('admin.login') }}" class="admin-btn">
-                <span class="admin-avatar" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                        <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/>
-                    </svg>
-                </span>
-                <span>{{ session('admin_login') ? session('admin_username', 'Admin') : 'Admin' }}</span>
-            </a>
+            <div class="nav-links">
+                <a href="{{ route('home') }}">Beranda</a>
+                <a href="{{ route('pengaduan') }}">Pengaduan</a>
+                <a href="{{ route('aspirasi') }}">Aspirasi</a>
+                <a href="{{ route('cek.status') }}">Cek Status</a>
+                <a href="{{ route('transparansi') }}">Transparansi</a>
+                <a href="{{ route('admin.login') }}" class="admin-btn">Admin</a>
+            </div>
         </nav>
     </header>
 

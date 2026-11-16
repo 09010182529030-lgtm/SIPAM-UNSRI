@@ -108,10 +108,6 @@
             color: #ffc629;
         }
 
-        .menu a.active {
-            color: #ffc629;
-        }
-
         .admin-btn {
             background: #ffc629;
             color: #06245f !important;
@@ -576,7 +572,7 @@
                 Pengaduan
             </a>
 
-            <a href="{{ url('/aspirasi') }}" class="active">
+            <a href="{{ url('/aspirasi') }}">
                 Aspirasi
             </a>
 

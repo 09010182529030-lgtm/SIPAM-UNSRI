@@ -106,10 +106,6 @@
             color: #ffc928;
         }
 
-        .nav-menu .active {
-            color: #ffc928;
-        }
-
         .admin-btn {
             background: linear-gradient(135deg, #ffda61, #ffc21b);
             color: #08265f !important;
@@ -646,7 +642,7 @@
             Beranda
         </a>
 
-        <a href="{{ url('/pengaduan') }}" class="active">
+        <a href="{{ url('/pengaduan') }}">
             Pengaduan
         </a>
 
