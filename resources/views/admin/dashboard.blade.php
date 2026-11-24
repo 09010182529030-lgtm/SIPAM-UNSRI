@@ -556,19 +556,19 @@
         }
 
         .chart-fill-incoming {
-            background: linear-gradient(90deg, #102d52 0%, #1b457a 42%, #d7a63b 100%);
+            background-color: #f59e0b;
         }
 
         .chart-fill-processing {
-            background: linear-gradient(90deg, #173d6b 0%, #2d7ac8 46%, #dfeaf7 100%);
+            background-color: #3b82f6;
         }
 
         .chart-fill-completed {
-            background: linear-gradient(90deg, #0e574f 0%, #2aa68d 52%, #c8e8dd 100%);
+            background-color: #10b981;
         }
 
         .chart-fill-aspirations {
-            background: linear-gradient(90deg, #24314d 0%, #6978a4 46%, #e6ebf3 100%);
+            background-color: #8b5cf6;
         }
 
         .chart-value {
@@ -1754,8 +1754,8 @@
                             aria-valuenow="{{ $item['value'] }}"
                         >
                             <div
-                                class="chart-fill chart-fill-{{ $item['key'] }}"
-                                style="width: {{ ($item['value'] / $maxChartValue) * 100 }}%"
+                                class="chart-fill"
+                                style="width: {{ ($item['value'] / $maxChartValue) * 100 }}%; background: {{ $item['color'] }} !important; background-image: none !important;"
                             ></div>
                         </div>
                         <span class="chart-value">{{ $item['value'] }}</span>

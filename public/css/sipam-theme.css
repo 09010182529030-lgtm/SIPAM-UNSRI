@@ -306,10 +306,6 @@ textarea:focus {
     border-color: rgba(246, 215, 124, .35) !important;
 }
 
-.chart-fill,
-.bar-fill {
-    background: linear-gradient(90deg, var(--sipam-navy), var(--sipam-gold)) !important;
-}
 
 .campus-footer,
 footer {

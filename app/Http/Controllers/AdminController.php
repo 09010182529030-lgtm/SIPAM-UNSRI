@@ -63,10 +63,10 @@ class AdminController extends Controller
         ];
 
         $chartData = [
-            ['label' => 'Pengaduan Masuk', 'value' => $statistics['incoming'], 'key' => 'incoming'],
-            ['label' => 'Pengaduan Diproses', 'value' => $statistics['processing'], 'key' => 'processing'],
-            ['label' => 'Pengaduan Selesai', 'value' => $statistics['completed'], 'key' => 'completed'],
-            ['label' => 'Aspirasi Mahasiswa', 'value' => $statistics['aspirations'], 'key' => 'aspirations'],
+            ['label' => 'Pengaduan Masuk', 'value' => $statistics['incoming'], 'key' => 'incoming', 'color' => '#f59e0b'],
+            ['label' => 'Pengaduan Diproses', 'value' => $statistics['processing'], 'key' => 'processing', 'color' => '#3b82f6'],
+            ['label' => 'Pengaduan Selesai', 'value' => $statistics['completed'], 'key' => 'completed', 'color' => '#10b981'],
+            ['label' => 'Aspirasi Mahasiswa', 'value' => $statistics['aspirations'], 'key' => 'aspirations', 'color' => '#8b5cf6'],
         ];
 
         $maxChartValue = max(array_column($chartData, 'value')) ?: 1;
